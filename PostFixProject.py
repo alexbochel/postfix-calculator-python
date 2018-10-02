@@ -6,19 +6,18 @@ class PostFixCalculator:
         self.PF1 = "0!!!1/10&1!!&=1=0|"
         self.PF2 = "10=!10/&11!0/=1|11!&|&0/"
         self.stack = list()
-        self.index = 0
+        self.index = -1
 
     def push(self, element):
         self.stack.append(element)
         self.index += 1
 
     def pop(self):
-        return -1
+        item = self.stack[self.index]
+        self.index -= 1
+        return item
 
     def solve_postfix(self, first, second, operator):
-
-
-
         return -1
 
 
