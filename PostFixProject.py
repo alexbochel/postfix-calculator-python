@@ -12,6 +12,9 @@ class PostFixCalculator:
         self.stack.append(element)
         self.index += 1
 
+    def pop(self):
+        return -1
+
     def solve_postfix(self, first, second, operator):
 
 
