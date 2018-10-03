@@ -1,28 +1,28 @@
 import unittest
-from PostFixProject import PostFixCalculator
+from PostFixProject import Stack
 
 class TestPostFixCalculator(unittest.TestCase):
 
     def setUp(self):
-        self.post_fix_calculator = PostFixCalculator()
+        self.stack = Stack()
 
     def test_push_first_item(self):
         # Arrange
         expected_item = 5
 
         #Act
-        self.post_fix_calculator.push(5)
+        self.stack.push(5)
 
         # Assert
-        self.assertEquals(self.post_fix_calculator.stack[0], expected_item)
+        self.assertEquals(self.stack.stack[0], expected_item)
 
     def test_pop_one_element(self):
         # Arrange
         expected_item = 5
 
         # Act
-        self.post_fix_calculator.push(5)
-        actual_item = self.post_fix_calculator.pop()
+        self.stack.push(5)
+        actual_item = self.stack.pop()
 
         # Assert
         self.assertEquals(expected_item, actual_item)
@@ -36,17 +36,17 @@ class TestPostFixCalculator(unittest.TestCase):
         expected_item_5 = 5
 
         # Act
-        self.post_fix_calculator.push(expected_item_1)
-        self.post_fix_calculator.push(expected_item_2)
-        self.post_fix_calculator.push(expected_item_3)
-        self.post_fix_calculator.push(expected_item_4)
-        self.post_fix_calculator.push(expected_item_5)
+        self.stack.push(expected_item_1)
+        self.stack.push(expected_item_2)
+        self.stack.push(expected_item_3)
+        self.stack.push(expected_item_4)
+        self.stack.push(expected_item_5)
 
-        actual_item_1 = self.post_fix_calculator.pop()
-        actual_item_2 = self.post_fix_calculator.pop()
-        actual_item_3 = self.post_fix_calculator.pop()
-        actual_item_4 = self.post_fix_calculator.pop()
-        actual_item_5 = self.post_fix_calculator.pop()
+        actual_item_1 = self.stack.pop()
+        actual_item_2 = self.stack.pop()
+        actual_item_3 = self.stack.pop()
+        actual_item_4 = self.stack.pop()
+        actual_item_5 = self.stack.pop()
 
         # Assert
         self.assertEquals(expected_item_1, actual_item_5)
