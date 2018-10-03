@@ -23,6 +23,31 @@ class LogicalEval:
         self.stack = Stack()
         self.expression = expression
 
+    def Equal(self, expression_one, expression_two):
+        if (expression_one == expression_two):
+            return 1
+        else:
+            return 0
+
+    def Process_Expression(self):
+        for character in self.expression:
+            if (character == '1') or (character == '0'):
+                self.stack.push(character)
+            elif (character == '='):
+                new_value = self.Equal(self.stack.Pop(), self.stack.Pop())
+                self.stack.Push(new_value)
+
+def Main():
+    logical_evaluator_trail_1 = LogicalEval(PF1)
+    logical_evaluator_trail_1 = LogicalEval(PF2)
+    logical_evaluator_trail_1 = LogicalEval('')
+    logical_evaluator_trail_1 = LogicalEval('')
+    logical_evaluator_trail_1 = LogicalEval('')
+
+
+
+
+
 
 
 
