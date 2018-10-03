@@ -8,17 +8,24 @@ class Stack:
         self.stack = list()
         self.index = -1
 
-    def push(self, element):
+    def Push(self, element):
         self.stack.append(element)
         self.index += 1
 
-    def pop(self):
+    def Pop(self):
         item = self.stack[self.index]
         self.index -= 1
         return item
 
 class LogicalEval:
 
-    def __init__(selfself):
-        stack = Stack()
+    def __init__(self, expression):
+        self.stack = Stack()
+        self.expression = expression
+
+
+
+
+
+
 

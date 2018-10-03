@@ -11,7 +11,7 @@ class TestPostFixCalculator(unittest.TestCase):
         expected_item = 5
 
         #Act
-        self.stack.push(5)
+        self.stack.Push(5)
 
         # Assert
         self.assertEquals(self.stack.stack[0], expected_item)
@@ -21,8 +21,8 @@ class TestPostFixCalculator(unittest.TestCase):
         expected_item = 5
 
         # Act
-        self.stack.push(5)
-        actual_item = self.stack.pop()
+        self.stack.Push(5)
+        actual_item = self.stack.Pop()
 
         # Assert
         self.assertEquals(expected_item, actual_item)
@@ -36,17 +36,17 @@ class TestPostFixCalculator(unittest.TestCase):
         expected_item_5 = 5
 
         # Act
-        self.stack.push(expected_item_1)
-        self.stack.push(expected_item_2)
-        self.stack.push(expected_item_3)
-        self.stack.push(expected_item_4)
-        self.stack.push(expected_item_5)
+        self.stack.Push(expected_item_1)
+        self.stack.Push(expected_item_2)
+        self.stack.Push(expected_item_3)
+        self.stack.Push(expected_item_4)
+        self.stack.Push(expected_item_5)
 
-        actual_item_1 = self.stack.pop()
-        actual_item_2 = self.stack.pop()
-        actual_item_3 = self.stack.pop()
-        actual_item_4 = self.stack.pop()
-        actual_item_5 = self.stack.pop()
+        actual_item_1 = self.stack.Pop()
+        actual_item_2 = self.stack.Pop()
+        actual_item_3 = self.stack.Pop()
+        actual_item_4 = self.stack.Pop()
+        actual_item_5 = self.stack.Pop()
 
         # Assert
         self.assertEquals(expected_item_1, actual_item_5)
@@ -54,8 +54,6 @@ class TestPostFixCalculator(unittest.TestCase):
         self.assertEquals(expected_item_3, actual_item_3)
         self.assertEquals(expected_item_4, actual_item_2)
         self.assertEquals(expected_item_5, actual_item_1)
-
-
 
 if __name__ == '__main__':
         unittest.main()
