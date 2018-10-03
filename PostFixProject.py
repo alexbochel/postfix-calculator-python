@@ -1,4 +1,3 @@
-import sys
 
 PF1 = "0!!!1/10&1!!&=1=0|"
 PF2 = "10=!10/&11!0/=1|11!&|&0/"
@@ -18,5 +17,8 @@ class Stack:
         self.index -= 1
         return item
 
+class LogicalEval:
 
+    def __init__(selfself):
+        stack = Stack()
 
