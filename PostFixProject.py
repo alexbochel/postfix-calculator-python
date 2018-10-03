@@ -32,10 +32,12 @@ class LogicalEval:
     def Process_Expression(self):
         for character in self.expression:
             if (character == '1') or (character == '0'):
-                self.stack.push(character)
+                self.stack.Push(character)
             elif (character == '='):
                 new_value = self.Equal(self.stack.Pop(), self.stack.Pop())
                 self.stack.Push(new_value)
+
+        return self.stack.Pop()
 
 def Main():
     logical_evaluator_trail_1 = LogicalEval(PF1)

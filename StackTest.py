@@ -1,7 +1,7 @@
 import unittest
 from PostFixProject import Stack
 
-class TestPostFixCalculator(unittest.TestCase):
+class TestStack(unittest.TestCase):
 
     def setUp(self):
         self.stack = Stack()
