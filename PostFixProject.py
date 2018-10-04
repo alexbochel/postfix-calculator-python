@@ -36,6 +36,12 @@ class LogicalEval:
         else:
             return '0'
 
+    def Not_Equal(self, expression_one, expression_two):
+        if (expression_one != expression_two):
+            return '1'
+        else:
+            return '0'
+
     def Equal(self, expression_one, expression_two):
         if (expression_one == expression_two):
             return '1'
@@ -49,15 +55,21 @@ class LogicalEval:
             return '0'
 
     def Process_Expression(self):
+        char_count = 0
         for character in self.expression:
             if (character == '1') or (character == '0'):
                 self.stack.Push(character)
             elif (character == '='):
-                new_value = self.Equal(self.stack.Pop(), self.stack.Pop())
-                self.stack.Push(new_value)
+                if (self.expression[char_count + 1] != '!'):
+                    new_value = self.Equal(self.stack.Pop(), self.stack.Pop())
+                    self.stack.Push(new_value)
+                else:
+                    new_value = self.Not_Equal(self.stack.Pop(), self.stack.Pop())
+                    self.stack.Push(new_value)
             elif (character == '!'):
-                new_value = self.Not(self.stack.Pop())
-                self.stack.Push(new_value)
+                if (self.expression[char_count - 1] != '='):
+                    new_value = self.Not(self.stack.Pop())
+                    self.stack.Push(new_value)
             elif (character == '&'):
                 new_value = self.And(self.stack.Pop(), self.stack.Pop())
                 self.stack.Push(new_value)
@@ -65,23 +77,21 @@ class LogicalEval:
                 new_value = self.Or(self.stack.Pop(), self.stack.Pop())
                 self.stack.Push(new_value)
 
-
+        char_count += 1
         return self.stack.Pop()
 
-def Main():
+if __name__ == '__main__':
     logical_evaluator_trail_1 = LogicalEval(PF1)
-    logical_evaluator_trail_1 = LogicalEval(PF2)
-    logical_evaluator_trail_1 = LogicalEval('')
-    logical_evaluator_trail_1 = LogicalEval('')
-    logical_evaluator_trail_1 = LogicalEval('')
+    print(logical_evaluator_trail_1.Process_Expression())
 
+    logical_evaluator_trail_2 = LogicalEval(PF2)
+    print(logical_evaluator_trail_2.Process_Expression())
 
+    logical_evaluator_trail_3 = LogicalEval('01=1/10|1/&')
+    print(logical_evaluator_trail_3.Process_Expression())
 
+    logical_evaluator_trail_4 = LogicalEval('11=0/0!&1|')
+    print(logical_evaluator_trail_4.Process_Expression())
 
-
-
-
-
-
-
-
+    logical_evaluator_trail_5 = LogicalEval('10&11!&|0/')
+    print(logical_evaluator_trail_5.Process_Expression())
