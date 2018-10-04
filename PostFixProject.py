@@ -55,29 +55,25 @@ class LogicalEval:
             return '0'
 
     def Process_Expression(self):
-        char_count = 0
         for character in self.expression:
             if (character == '1') or (character == '0'):
                 self.stack.Push(character)
             elif (character == '='):
-                if (self.expression[char_count + 1] != '!'):
-                    new_value = self.Equal(self.stack.Pop(), self.stack.Pop())
-                    self.stack.Push(new_value)
-                else:
-                    new_value = self.Not_Equal(self.stack.Pop(), self.stack.Pop())
-                    self.stack.Push(new_value)
+                new_value = self.Equal(self.stack.Pop(), self.stack.Pop())
+                self.stack.Push(new_value)
             elif (character == '!'):
-                if (self.expression[char_count - 1] != '='):
-                    new_value = self.Not(self.stack.Pop())
-                    self.stack.Push(new_value)
+                new_value = self.Not(self.stack.Pop())
+                self.stack.Push(new_value)
             elif (character == '&'):
                 new_value = self.And(self.stack.Pop(), self.stack.Pop())
                 self.stack.Push(new_value)
             elif (character == '|'):
                 new_value = self.Or(self.stack.Pop(), self.stack.Pop())
                 self.stack.Push(new_value)
+            elif (character == '/'):
+                new_value = self.Not_Equal(self.stack.Pop(), self.stack.Pop())
+                self.stack.Push(new_value)
 
-        char_count += 1
         return self.stack.Pop()
 
 if __name__ == '__main__':
