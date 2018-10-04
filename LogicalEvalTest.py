@@ -50,6 +50,38 @@ class TestLogicalEval(unittest.TestCase):
         # Assert
         self.assertEquals(expected_char, actual_char)
 
+    def test_and_true_ones(self):
+        # Arrange
+        logical_evaluator = LogicalEval('11&')
+        expected_char = '1'
+
+        # Act
+        actual_char = logical_evaluator.Process_Expression()
+
+        # Assert
+        self.assertEquals(expected_char, actual_char)
+
+    def test_and_true_zeros(self):
+        # Arrange
+        logical_evaluator = LogicalEval('00&')
+        expected_char = '1'
+
+        # Act
+        actual_char = logical_evaluator.Process_Expression()
+
+        # Assert
+        self.assertEquals(expected_char, actual_char)
+
+    def test_and_false(self):
+        # Arrange
+        logical_evaluator = LogicalEval('01&')
+        expected_char = '0'
+
+        # Act
+        actual_char = logical_evaluator.Process_Expression()
+
+        # Assert
+        self.assertEquals(expected_char, actual_char)
 
 
 if __name__ == '__main__':

@@ -30,8 +30,20 @@ class LogicalEval:
         else:
             return '1'
 
+    def And(self, expression_one, expression_two):
+        if (expression_two == expression_one):
+            return '1'
+        else:
+            return '0'
+
     def Equal(self, expression_one, expression_two):
         if (expression_one == expression_two):
+            return '1'
+        else:
+            return '0'
+
+    def Or(self, expression_one, expression_two):
+        if (expression_two == '1') or (expression_one == '1'):
             return '1'
         else:
             return '0'
@@ -45,6 +57,12 @@ class LogicalEval:
                 self.stack.Push(new_value)
             elif (character == '!'):
                 new_value = self.Not(self.stack.Pop())
+                self.stack.Push(new_value)
+            elif (character == '&'):
+                new_value = self.And(self.stack.Pop(), self.stack.Pop())
+                self.stack.Push(new_value)
+            elif (character == '|'):
+                new_value = self.Or(self.stack.Pop(), self.stack.Pop())
                 self.stack.Push(new_value)
 
 
