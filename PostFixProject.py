@@ -14,6 +14,7 @@ class Stack:
 
     def Pop(self):
         item = self.stack[self.index]
+        self.stack.remove(self.stack[self.index])
         self.index -= 1
         return item
 
@@ -23,11 +24,17 @@ class LogicalEval:
         self.stack = Stack()
         self.expression = expression
 
+    def Not(self, expression):
+        if (expression == '1'):
+            return '0'
+        else:
+            return '1'
+
     def Equal(self, expression_one, expression_two):
         if (expression_one == expression_two):
-            return 1
+            return '1'
         else:
-            return 0
+            return '0'
 
     def Process_Expression(self):
         for character in self.expression:
@@ -36,6 +43,10 @@ class LogicalEval:
             elif (character == '='):
                 new_value = self.Equal(self.stack.Pop(), self.stack.Pop())
                 self.stack.Push(new_value)
+            elif (character == '!'):
+                new_value = self.Not(self.stack.Pop())
+                self.stack.Push(new_value)
+
 
         return self.stack.Pop()
 
