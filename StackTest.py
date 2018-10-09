@@ -55,5 +55,25 @@ class TestStack(unittest.TestCase):
         self.assertEquals(expected_item_4, actual_item_2)
         self.assertEquals(expected_item_5, actual_item_1)
 
+    def test_push_and_pop_for_failing_case(self):
+        # Arrange
+        expected_item_1 = 0
+        expected_item_2 = 1
+        expected_item_3 = 0
+
+        # Act
+        self.stack.Push(expected_item_1)
+        self.stack.Push(expected_item_2)
+        self.stack.Push(expected_item_3)
+
+        actual_item_1 = self.stack.Pop()
+        actual_item_2 = self.stack.Pop()
+        actual_item_3 = self.stack.Pop()
+
+        # Assert
+        self.assertEquals(expected_item_1, actual_item_3)
+        self.assertEquals(expected_item_2, actual_item_2)
+        self.assertEquals(expected_item_3, actual_item_1)
+
 if __name__ == '__main__':
         unittest.main()

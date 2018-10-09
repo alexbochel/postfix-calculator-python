@@ -14,7 +14,9 @@ class Stack:
 
     def Pop(self):
         item = self.stack[self.index]
-        self.stack.remove(self.stack[self.index])
+        self.stack.reverse()
+        self.stack.remove(item) #Takes from beginning of the list not the end
+        self.stack.reverse()
         self.index -= 1
         return item
 
