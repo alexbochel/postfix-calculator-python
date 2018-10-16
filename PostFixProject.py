@@ -83,16 +83,16 @@ if __name__ == '__main__':
     log = open("output.txt", "w")
 
     logical_evaluator_trail_1 = LogicalEval(PF1)
-    print(logical_evaluator_trail_1.Process_Expression(), file = log)
+    print(PF1 + ": " + logical_evaluator_trail_1.Process_Expression(), file = log)
 
     logical_evaluator_trail_2 = LogicalEval(PF2)
-    print(logical_evaluator_trail_2.Process_Expression(), file = log)
+    print(PF2 + ": " + logical_evaluator_trail_2.Process_Expression(), file = log)
 
     logical_evaluator_trail_3 = LogicalEval('01=1/10|1/&')
-    print(logical_evaluator_trail_3.Process_Expression(), file = log)
+    print("01=1/10|1/&: " + logical_evaluator_trail_3.Process_Expression(), file = log)
 
     logical_evaluator_trail_4 = LogicalEval('11=0/0!&1|')
-    print(logical_evaluator_trail_4.Process_Expression(), file = log)
+    print("11=0/0!&1|: " + logical_evaluator_trail_4.Process_Expression(), file = log)
 
     logical_evaluator_trail_5 = LogicalEval('10&11!&|0/')
-    print(logical_evaluator_trail_5.Process_Expression(), file = log)
+    print("10&11!&|0/: " + logical_evaluator_trail_5.Process_Expression(), file = log)
